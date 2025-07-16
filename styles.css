@@ -106,7 +106,12 @@ main, .header, .footer, .about, .sample-section, .contact {
     font-size: 2.5rem;
     letter-spacing: 2px;
     font-weight: 700;
-    color: #7f53ac;
+    background: linear-gradient(90deg, #ff2a00 0%, #ff4e50 40%, #396afc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 2px 12px #396afc33;
 }
 
 .header p {
@@ -151,13 +156,13 @@ main, .header, .footer, .about, .sample-section, .contact {
     position: absolute;
     left: 20%;
     right: 20%;
-    bottom: 7px;
-    height: 3px;
+    bottom: 0px;
+    height: 4px;
     border-radius: 2px;
-    background: linear-gradient(90deg, #ffb347 0%, #fff 100%);
+    background: linear-gradient(90deg, #7f53ac 0%, #396afc 100%);
     opacity: 0;
     transform: scaleX(0.7);
-    transition: opacity 0.25s, transform 0.25s;
+    transition: opacity 0.25s, transform 0.25s, bottom 0.25s;
     z-index: -1;
 }
 
@@ -263,6 +268,8 @@ main, .header, .footer, .about, .sample-section, .contact {
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     transition: transform 0.3s, box-shadow 0.3s;
     animation: fadeIn 1.2s;
+    flex-wrap: wrap;
+    gap: 1.2rem;
 }
 
 .sample-card:hover {
@@ -489,6 +496,12 @@ audio {
         max-width: 98vw;
         padding: 1.2rem 0.5rem;
     }
+    .sample-card {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.7rem;
+        padding: 1rem 0.7rem;
+    }
 }
 
 @media (max-width: 700px) {
@@ -512,6 +525,12 @@ audio {
         font-size: 1rem;
         padding: 0.7rem 1.2rem;
     }
+    .sample-card {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.5rem;
+        padding: 0.8rem 0.5rem;
+    }
 }
 
 @media (max-width: 400px) {
@@ -524,6 +543,10 @@ audio {
     .cta-btn {
         font-size: 0.95rem;
         padding: 0.6rem 0.7rem;
+    }
+    .sample-card {
+        padding: 0.5rem 0.2rem;
+        gap: 0.3rem;
     }
 }
 
@@ -615,5 +638,24 @@ html {
         bottom: 1rem;
         width: 40px;
         height: 40px;
+    }
+} 
+
+.profile-photo {
+    display: block;
+    margin: 0 auto 1.2rem auto;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #7f53ac;
+    box-shadow: 0 4px 24px #7f53ac33;
+    background: #fff;
+}
+@media (max-width: 700px) {
+    .profile-photo {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 0.7rem;
     }
 } 
